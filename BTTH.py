@@ -231,33 +231,38 @@ def calculate_revenue(tickets):
     logging.info(f"Revenue report generated. Total: {total_price:.1f}")
     
 
-while True:
-    choice = input("""
-=== HỆ THỐNG QUẢN LÝ VÉ RIKKEI ESPORTS ===
-1. Xem danh sách vé đã bán
-2. Đặt vé mới
-3. Đổi chỗ ngồi (Cập nhật vé)
-4. Hủy vé
-5. Báo cáo doanh thu
-6. Thoát chương trình
-======================================== 
-Chọn chức năng (1-6): """)
+def main():
+    while True:
+        choice = input("""
+    === HỆ THỐNG QUẢN LÝ VÉ RIKKEI ESPORTS ===
+    1. Xem danh sách vé đã bán
+    2. Đặt vé mới
+    3. Đổi chỗ ngồi (Cập nhật vé)
+    4. Hủy vé
+    5. Báo cáo doanh thu
+    6. Thoát chương trình
+    ======================================== 
+    Chọn chức năng (1-6): """)
 
-    match choice:
-        case "1":
-            display_tickets(tickets)
-        case "2":
-            book_ticket(tickets)
-        case "3":
-            change_seat(tickets)
-        case "4":
-            cancel_ticket(tickets)
-        case '5':
-            calculate_revenue(tickets)
-        case "6":
-            logging.info("Ticket management system closed.")
-            print("Cảm ơn bạn đã sử dụng hệ thống quản lý vé Rikkei Esports. ")
-            break
-        case _:
-            print("Lựa chọn không hợp lệ! Vui lòng nhập lại (1-6): ")
-            logging.warning("Invalid menu choice selected")
+        match choice:
+            case "1":
+                display_tickets(tickets)
+            case "2":
+                book_ticket(tickets)
+            case "3":
+                change_seat(tickets)
+            case "4":
+                cancel_ticket(tickets)
+            case "5":
+                calculate_revenue(tickets)
+            case "6":
+                logging.info("Ticket management system closed.")
+                print("Cảm ơn bạn đã sử dụng hệ thống quản lý vé Rikkei Esports. ")
+                break
+            case _:
+                print("Lựa chọn không hợp lệ! Vui lòng nhập lại (1-6): ")
+                logging.warning("Invalid menu choice selected")
+
+
+if __name__ == "__main__":
+    main()
